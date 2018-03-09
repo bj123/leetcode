@@ -6,7 +6,9 @@ import java.util.List;
 
 /**
  * Created by yangyang on 2018/3/8.
+ * beat 85.9%
  */
+
 public class Solution {
     List<List<Integer>> rs = new ArrayList<>();
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
