@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
  * Created by yangyang on 2018/3/8.
+ * beat 88%
  */
 public class Solution {
     public int maxPoints(Point[] points) {
