@@ -15,7 +15,7 @@ public class Solution {
         //must sort
         Arrays.sort(candidates);
         if(target == 0){
-            rs.add(new ArrayList<>());
+            rs.add(new ArrayList<Integer>());
             return rs;
         }
 
