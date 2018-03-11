@@ -3,6 +3,7 @@ package com.sailing.leetcode.package65;
 /**
  * yanyang 2018-03-11
  * 恶趣味的题目
+ * The description do not give a clear explantion of the definition of a valid Number, we just use more and more trick to get the right solution. It’s too bad, it’s waste of my time
  */
 public class Solution {
     public boolean isNumber(String s) {
