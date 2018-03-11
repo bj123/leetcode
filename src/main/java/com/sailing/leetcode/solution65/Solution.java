@@ -1,4 +1,4 @@
-package com.sailing.leetcode.package65;
+package com.sailing.leetcode.solution65;
 
 /**
  * yanyang 2018-03-11
