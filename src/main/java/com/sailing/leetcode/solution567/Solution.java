@@ -1,4 +1,4 @@
-package com.sailing.leetcode.package567;
+package com.sailing.leetcode.solution567;
 
 import java.util.Arrays;
 
