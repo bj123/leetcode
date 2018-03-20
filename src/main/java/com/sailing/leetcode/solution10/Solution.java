@@ -21,15 +21,15 @@ public class Solution {
     }
 
     private boolean filter(String s, Node p) {
-        Node head = p;
         LinkedList<Node> backtrackList = new LinkedList<>();
         int comsume = 0;
-        boolean neddBack = false;
+        boolean needBack = false;
         while (true) {
             if (p == null && comsume == s.length()) {
                 return true;
             }
-            if (!neddBack && p != null) {
+
+            if (!needBack && p != null) {
                 if (p.loop != Integer.MIN_VALUE) {
                     backtrackList.add(p);
                     p = p.next;
@@ -41,12 +41,11 @@ public class Solution {
                 }
 
                 if (p.path == s.charAt(comsume) || p.path == INF) {
-                    Node next = null;
-                    next = p.next;
+                    Node next = p.next;
                     comsume = comsume + 1;
                     p = next;
                 }else {
-                    neddBack = true;
+                    needBack = true;
                 }
             } else {
                 //do backtrack
@@ -61,7 +60,7 @@ public class Solution {
                     }
 
                     if (s.charAt(comsume) == p.loop || p.loop == INF) {
-                        comsume = comsume + 1;
+                        comsume ++;
                         p.useCount++;
                         p = p.next;
                         break;
@@ -70,7 +69,7 @@ public class Solution {
                         t.useCount = 0;
                     }
                 }
-                neddBack = false;
+                needBack = false;
             }
         }
     }
