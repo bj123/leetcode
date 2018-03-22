@@ -15,7 +15,7 @@ public class Solution {
         if(root == null){
             return new ArrayList<>();
         }
-        travel(root, sum, new LinkedList<>());
+        travel(root, sum, new LinkedList<Integer>());
         return ss;
     }
 
