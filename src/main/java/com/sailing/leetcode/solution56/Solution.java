@@ -4,11 +4,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+public class Solution {
+    public List<Interval> merge(List<Interval> intervals) {
+        if(intervals == null || intervals.size() == 1){
             return intervals;
-        Iterator<Interval> itor = result.iterator();
-            if(cur.start > interval.end || cur.end < interval.start){
-            }
         }
+        List<Interval> result = new ArrayList<>(intervals.size());
+        for(Interval interval : intervals){
+            addToResut(interval, result);
+        }
+        return result;
+    }
+
+    private void addToResut(Interval interval, List<Interval> result) {
+        List<Interval> needMerge = new ArrayList<>();
+        Iterator<Interval> itor = result.iterator();
+        while(itor.hasNext()){
+            Interval cur = itor.next();
+            if(cur.start > interval.end || cur.end < interval.start){
+                continue;
+            }
+            needMerge.add(cur);
+            itor.remove();
+        }
+
         for(Interval cur : needMerge){
             if(cur.end > interval.end){
                 interval.end = cur.end;
