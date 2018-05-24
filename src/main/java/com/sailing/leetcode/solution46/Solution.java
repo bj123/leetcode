@@ -6,44 +6,48 @@ import java.util.List;
 
 /**
  * Created by yangyang on 2018/3/15.
- * beat 16%
+ * refine@
+ * beat 65%
  */
 public class Solution {
     int LIMIT = 0;
+    List<List<Integer>> rs = new LinkedList<>();
+
     public List<List<Integer>> permute(int[] nums) {
+
         boolean[] f = new boolean[nums.length];
         LIMIT = 2 * nums.length;
-        List<List<Integer>> rs = getP(nums, f, nums.length);
+        addToPermuteList(nums, f, nums.length, new ArrayList<Integer>(LIMIT));
+
         return rs;
     }
 
-    private List<List<Integer>> getP(int[] nums, boolean[] f, int remain) {
-        List<List<Integer>> ss = new LinkedList<>();
+    private void addToPermuteList(int[] nums, boolean[] f, int remain, List<Integer> cur) {
         if(remain == 1){
-            List<Integer> s = new ArrayList<>(LIMIT);
             for(int j = 0; j < nums.length; j++){
                 if(!f[j]){
-                    s.add(nums[j]);
+                    cur.add(nums[j]);
+                    break;
                 }
             }
-            ss.add(s);
-            return ss;
-        }
+            rs.add(new ArrayList<Integer>(cur));
+            cur.remove(cur.size() - 1);
 
-        for(int i = 0; i < nums.length; i++){
-            if(f[i]){
-                continue;
-            }
+        }else {
+            for (int i = 0; i < nums.length; i++) {
+                if (f[i]) {
+                    continue;
+                }
 
-            f[i] = true;
-            List<List<Integer>> curRs  = getP(nums, f, remain - 1);
-            f[i] = false;
-            for(List<Integer> r : curRs){
-                r.add(nums[i]);
-                ss.add(r);
+                f[i] = true;
+                cur.add(nums[i]);
+
+                addToPermuteList(nums, f, remain - 1, cur);
+
+                f[i] = false;
+                cur.remove(cur.size() - 1);
             }
         }
-        return ss;
     }
 
     public static void main(String[] args) {
