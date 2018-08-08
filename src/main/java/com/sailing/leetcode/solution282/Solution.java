@@ -64,11 +64,14 @@ public class Solution {
                 }
                 //add
                 List<String> add = collect(nums, i - 1, target - info.c);
-                //minus
-                List<String> minus = collect(nums, i - 1, target + info.c);
-
+                if(info.c != 0) {
+                    //minus
+                    List<String> minus = collect(nums, i - 1, target + info.c);
+                    addto(rs, minus, "-", info.str);
+                }else {
+                    addto(rs, add, "-", info.str);
+                }
                 addto(rs, add, "+", info.str);
-                addto(rs, minus, "-", info.str);
             }
         }
 
