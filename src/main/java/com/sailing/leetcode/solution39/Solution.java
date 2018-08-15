@@ -6,14 +6,16 @@ import java.util.List;
 
 /**
  * Created by yangyang on 2018/3/8.
+ * beat 85.9%
  */
+
 public class Solution {
     List<List<Integer>> rs = new ArrayList<>();
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         //must sort
         Arrays.sort(candidates);
         if(target == 0){
-            rs.add(new ArrayList<>());
+            rs.add(new ArrayList<Integer>());
             return rs;
         }
 
